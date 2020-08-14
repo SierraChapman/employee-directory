@@ -1,4 +1,5 @@
 import React, { useReducer } from 'react';
+import Navbar from './Navbar';
 
 const employees = require("./db/employee.json");
 
@@ -15,7 +16,7 @@ function App() {
   });
 
   return (
-    <h1>Employee Directory</h1>
+    <Navbar />
   );
 }
 
