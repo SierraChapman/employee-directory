@@ -1,5 +1,5 @@
 import React, { useReducer } from 'react';
-import Navbar from './Navbar';
+import Navbar from './components/Navbar';
 import './style.css';
 
 const employees = require("./db/employee.json");
