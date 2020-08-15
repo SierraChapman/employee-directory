@@ -9,7 +9,7 @@ function Table(props) {
       <table>
         <thead>
           <tr>
-            {props.columns.map(columnName => <th key={columnName}>{columnName}</th>)}
+            {props.columns.map(columnName => <th key={columnName} onClick={() => props.sortEmployees(columnName)}>{columnName}</th>)}
           </tr>
         </thead>
         <tbody>

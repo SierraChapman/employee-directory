@@ -36,13 +36,18 @@ function App() {
 
   const searchEmployees = event => {
     const { value } = event.target;
-    dispatch({type: "search", filter: value})
+    dispatch({type: "search", filter: value});
+  }
+
+  const sortEmployees = (sortBy, descending=false) => {
+    console.log("sorting by " + sortBy);
+    dispatch({type: "sort", sortBy, descending});
   }
 
   return (
     <main>
       <Navbar filter={state.filter} searchEmployees={searchEmployees}/>
-      <Table state={state} columns={columns}/>
+      <Table state={state} columns={columns} sortEmployees={sortEmployees}/>
     </main>
   );
 }
