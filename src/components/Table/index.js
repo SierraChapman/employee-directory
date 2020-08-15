@@ -13,7 +13,7 @@ function Table(props) {
           </tr>
         </thead>
         <tbody>
-          {props.state.employees.map(employee => {
+          {props.state.employees.filter(employee => employee.display).map(employee => {
             return <Row data={employee} columns={props.columns} key={employee.name}/>;
           })}
         </tbody>

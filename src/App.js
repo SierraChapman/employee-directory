@@ -4,16 +4,26 @@ import Table from './components/Table';
 import './style.css';
 
 const employees = require("./db/employee.json");
+const columns = ["Image", "First Name", "Last Name", "Phone", "Email", "DOB"]; // columns to display
+const filterBy = ["name", "Phone", "Email", "DOB"]; // columns to search for search term
 
 function App() {
-
-  const columns = ["Image", "First Name", "Last Name", "Phone", "Email", "DOB"];
 
   // set up state to keep track of display
   const [state, dispatch] = useReducer((state, action) => {
     switch (action.type) {
       case "search":
-        return {...state, filter: action.filter};
+        const filter = action.filter.trim().toLowerCase();
+        return {...state, filter: action.filter, employees: state.employees.map(employee => {
+          let isMatched = false;
+          for (const columnName of filterBy) {
+            if (employee[columnName].toLowerCase().includes(filter)) {
+              isMatched = true;
+              break;
+            }
+          }
+          return {...employee, display: isMatched};
+        })};
       default:
         return state;
     }
