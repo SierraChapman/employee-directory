@@ -1,5 +1,6 @@
 import React, {} from 'react';
 import Row from '../Row';
+import SortBtn from '../SortBtn';
 import "./style.css";
 
 function Table(props) {
@@ -9,7 +10,15 @@ function Table(props) {
       <table>
         <thead>
           <tr>
-            {props.columns.map(columnName => <th key={columnName} onClick={() => props.sortEmployees(columnName)}>{columnName}</th>)}
+            {props.columns.map(columnName => {
+              return (
+                <th key={columnName} onClick={() => props.sortEmployees(columnName)}>
+                  {columnName + " "} 
+                  <SortBtn decreasing={false} /> 
+                  <SortBtn decreasing={true} /> 
+                </th>
+              );
+            })}
           </tr>
         </thead>
         <tbody>
