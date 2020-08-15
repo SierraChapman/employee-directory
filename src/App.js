@@ -24,6 +24,24 @@ function App() {
           }
           return {...employee, display: isMatched};
         })};
+
+      case "sort":
+        return {
+          ...state, sortedBy: action.sortBy, descending: action.descending, employees: state.employees.sort((a, b) => {
+            // use column specified by sortBy, and ignore capitalization
+            const a_val = a[action.sortBy].toLowerCase();
+            const b_val = b[action.sortBy].toLowerCase();
+
+            if ((a_val > b_val) !== action.descending) { // order is inverted if action.descending
+              return 1;
+            } else if ((a_val < b_val) !== action.descending) {
+              return -1;
+            } else {
+              return 0;
+            }
+          })
+        }
+
       default:
         return state;
     }
@@ -40,7 +58,6 @@ function App() {
   }
 
   const sortEmployees = (sortBy, descending=false) => {
-    console.log("sorting by " + sortBy);
     dispatch({type: "sort", sortBy, descending});
   }
 
