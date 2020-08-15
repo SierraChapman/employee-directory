@@ -7,11 +7,13 @@ function Table(props) {
   return (
     <table>
       <thead>
-        {props.columns.map(columnName => <th>{columnName}</th>)}
+        <tr>
+          {props.columns.map(columnName => <th key={columnName}>{columnName}</th>)}
+        </tr>
       </thead>
       <tbody>
         {props.state.employees.map(employee => {
-          return <Row data={employee} columns={props.columns}/>;
+          return <Row data={employee} columns={props.columns} key={employee.name}/>;
         })}
       </tbody>
     </table>
