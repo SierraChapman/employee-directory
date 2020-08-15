@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Table from './components/Table';
 import './style.css';
@@ -60,6 +60,11 @@ function App() {
   const sortEmployees = (sortBy, descending=false) => {
     dispatch({type: "sort", sortBy, descending});
   }
+
+  useEffect(() => {
+    // have employees start out sorted by last name
+    sortEmployees("Last Name");
+  }, []);
 
   return (
     <main>
