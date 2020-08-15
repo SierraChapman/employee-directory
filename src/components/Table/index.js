@@ -13,9 +13,14 @@ function Table(props) {
             {props.columns.map(columnName => {
               return (
                 <th key={columnName}>
-                  {columnName + " "} 
-                  <SortBtn decreasing={false} columnName={columnName} state={props.state} sortEmployees={props.sortEmployees} /> 
-                  <SortBtn decreasing={true} columnName={columnName} state={props.state} sortEmployees={props.sortEmployees} /> 
+                  { columnName === "Image" ? columnName : (
+                    // Render sort buttons except after "Image"
+                    <span>
+                      {columnName + " "} 
+                      <SortBtn decreasing={false} columnName={columnName} state={props.state} sortEmployees={props.sortEmployees} /> 
+                      <SortBtn decreasing={true} columnName={columnName} state={props.state} sortEmployees={props.sortEmployees} /> 
+                    </span>
+                  )}
                 </th>
               );
             })}
