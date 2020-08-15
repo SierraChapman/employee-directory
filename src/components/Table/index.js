@@ -12,7 +12,7 @@ function Table(props) {
           <tr>
             {props.columns.map(columnName => {
               return (
-                <th key={columnName}>
+                <th key={columnName} style={{width: props.columnWidths[columnName]}}>
                   { columnName === "Image" ? columnName : (
                     // Render sort buttons except after "Image"
                     <span>

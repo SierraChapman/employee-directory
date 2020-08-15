@@ -6,6 +6,14 @@ import './style.css';
 const employees = require("./db/employee.json");
 const columns = ["Image", "First Name", "Last Name", "Phone", "Email", "DOB"]; // columns to display
 const filterBy = ["name", "Phone", "Email", "DOB"]; // columns to search for search term
+const columnWidths = {
+  "Image": 56,
+  "First Name": 100,
+  "Last Name": 100,
+  "Phone": 100,
+  "Email": 250,
+  "DOB": 85,
+};
 
 function App() {
 
@@ -69,7 +77,7 @@ function App() {
   return (
     <main>
       <Navbar filter={state.filter} searchEmployees={searchEmployees}/>
-      <Table state={state} columns={columns} sortEmployees={sortEmployees}/>
+      <Table state={state} columns={columns} sortEmployees={sortEmployees} columnWidths={columnWidths}/>
     </main>
   );
 }
