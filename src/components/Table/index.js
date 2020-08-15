@@ -12,10 +12,10 @@ function Table(props) {
           <tr>
             {props.columns.map(columnName => {
               return (
-                <th key={columnName} onClick={() => props.sortEmployees(columnName)}>
+                <th key={columnName}>
                   {columnName + " "} 
-                  <SortBtn decreasing={false} /> 
-                  <SortBtn decreasing={true} /> 
+                  <SortBtn decreasing={false} columnName={columnName} state={props.state} sortEmployees={props.sortEmployees} /> 
+                  <SortBtn decreasing={true} columnName={columnName} state={props.state} sortEmployees={props.sortEmployees} /> 
                 </th>
               );
             })}

@@ -10,8 +10,12 @@ function SortBtn(props) {
   sortEmployees
   */
 
+  const { sortEmployees, columnName, decreasing } = props;
+
   return (
-    <span>{ props.decreasing ? "⋁" : "⋀" }</span>
+    <span onClick={() => sortEmployees(columnName, decreasing)}>
+      {decreasing ? "⋁" : "⋀"}
+    </span>
   );
 }
 
