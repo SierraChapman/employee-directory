@@ -1,9 +1,11 @@
 .table-container {
     margin: 5rem 2rem;
+    overflow-x: auto;
 }
 
 table {
     margin: 0 auto;
+    width: 787px;
 }
 
 td, th {
