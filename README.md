@@ -27,7 +27,13 @@ This React application displays a table of employee data. The user can sort the 
 
 ## Demonstration
 
-![Demonstration of application](demo.gif)
+### Sorting Employees
+
+![sorting demo](demo-sort.gif)
+
+### Searching Employees
+
+![search demo](demo-search.gif)
 
 ## Code Explanation
 
