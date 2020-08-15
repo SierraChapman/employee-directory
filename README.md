@@ -75,7 +75,7 @@ This project is licensed under the MIT license.
 
 ## Acknowledgements
 
-* The employee data used in this application was generated with the (Random User Generator API)[https://randomuser.me/].
+* The employee data used in this application was generated with the [Random User Generator API](https://randomuser.me/).
 * This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Questions
