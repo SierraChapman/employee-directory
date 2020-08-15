@@ -11,7 +11,12 @@ function App() {
 
   // set up state to keep track of display
   const [state, dispatch] = useReducer((state, action) => {
-    return state;
+    switch (action.type) {
+      case "search":
+        return {...state, filter: action.filter};
+      default:
+        return state;
+    }
   }, {
     employees: employees.map(employee => ({...employee, name: employee["First Name"] + " " +  employee["Last Name"], display: true})), // employee list, initialized with all displayed
     filter: "", // string typed in search bar
@@ -19,9 +24,14 @@ function App() {
     descending: false, // also used to determine which arrow to highlight
   });
 
+  const searchEmployees = event => {
+    const { value } = event.target;
+    dispatch({type: "search", filter: value})
+  }
+
   return (
     <main>
-      <Navbar />
+      <Navbar filter={state.filter} searchEmployees={searchEmployees}/>
       <Table state={state} columns={columns}/>
     </main>
   );
