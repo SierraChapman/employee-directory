@@ -1,0 +1,16 @@
+.sort-btn {
+    cursor: pointer;
+    color: #bbbbbb;
+}
+
+.sort-btn-selected {
+    color: #000000;
+}
+
+.sort-btn:hover {
+    color: #666666;
+}
+
+.sort-btn, .sort-btn-selected {
+    font-size: 14px;
+}

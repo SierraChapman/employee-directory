@@ -17,8 +17,8 @@ function Table(props) {
                     // Render sort buttons except after "Image"
                     <span>
                       {columnName + " "} 
-                      <SortBtn decreasing={false} columnName={columnName} state={props.state} sortEmployees={props.sortEmployees} /> 
-                      <SortBtn decreasing={true} columnName={columnName} state={props.state} sortEmployees={props.sortEmployees} /> 
+                      <SortBtn descending={false} columnName={columnName} state={props.state} sortEmployees={props.sortEmployees} /> 
+                      <SortBtn descending={true} columnName={columnName} state={props.state} sortEmployees={props.sortEmployees} /> 
                     </span>
                   )}
                 </th>
